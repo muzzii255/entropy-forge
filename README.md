@@ -197,7 +197,7 @@ fmt.Printf("Entropy: %.1f bits\n", analysis.Complexity.Entropy)
 ## 🛠️ Installation
 
 ```bash
-go get github.com/muzzii255/entropy-forge
+go get github.com/muzzii255/entropy-forge@latest
 ```
 
 **Requirements:**
