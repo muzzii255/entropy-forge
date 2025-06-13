@@ -48,6 +48,7 @@ func CsprngLowAlloc(length int, result *strings.Builder) error {
 	for range length {
 		randomIndex, err := rand.Int(rand.Reader, big.NewInt(int64(len(charset))))
 		if err != nil {
+			result.Reset()
 			return err
 		}else {
 			result.WriteByte(charset[randomIndex.Int64()])
@@ -67,6 +68,7 @@ func DicewareLowAlloc(opts DicewareOptions, result *strings.Builder) error {
     var uppercaseWordIndex int = -1
     if opts.Uppercase {
         if idx, err := rand.Int(rand.Reader, big.NewInt(int64(opts.WordCount))); err != nil {
+        	result.Reset()
             return err
         } else {
             uppercaseWordIndex = int(idx.Int64())
