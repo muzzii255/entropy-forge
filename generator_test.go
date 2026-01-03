@@ -73,17 +73,6 @@ func BenchmarkGenerateCsprngLowAlloc(b *testing.B) {
     }
 }
 
-func BenchmarkPasswordAnalysis(b *testing.B) {
-    password := "Correct-Horse-Battery-Staple-123!"
-    
-    b.ResetTimer()
-    b.ReportAllocs()
-    
-    for i := 0; i < b.N; i++ {
-        _ = AnalyzePasswordComplexity(password)
-    }
-}
-
 
 // Parallel benchmarks
 func BenchmarkGenerateDicewareParallel(b *testing.B) {

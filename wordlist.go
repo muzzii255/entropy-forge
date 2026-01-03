@@ -2,7 +2,7 @@ package entropyforge
 
 import (
 	_ "embed"
-	"encoding/json"
+	"github.com/bytedance/sonic"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 	"log"
@@ -17,7 +17,7 @@ var wordList map[string]string
 
 func init() {
 	// Load wordlist from embedded data instead of reading file
-	if err := json.Unmarshal(wordlistData, &wordList); err != nil {
+	if err := sonic.Unmarshal(wordlistData, &wordList); err != nil {
 		log.Fatalf("Failed to load embedded wordlist: %v", err)
 	}
 	
